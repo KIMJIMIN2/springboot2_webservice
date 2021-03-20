@@ -29,6 +29,7 @@ public class PostsService {
         return id;
     }
 
+    @Transactional
     public PostsResponseDto findById(Long id){
         Posts entity = postsRepository.findById(id)
                 .orElseThrow(
