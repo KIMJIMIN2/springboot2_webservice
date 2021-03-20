@@ -3,7 +3,7 @@ package com.jojoldu.book.service.posts;
 import com.jojoldu.book.domain.posts.Posts;
 import com.jojoldu.book.domain.posts.PostsRepository;
 import com.jojoldu.book.web.dto.PostsResponseDto;
-import com.jojoldu.book.web.dto.PostUpdateRequestDto;
+import com.jojoldu.book.web.dto.PostsUpdateRequestDto;
 import com.jojoldu.book.web.dto.PostsSaveRequestDto;
 
 import lombok.RequiredArgsConstructor;
@@ -21,7 +21,7 @@ public class PostsService {
     }
 
     @Transactional
-    public Long update(Long id, PostUpdateRequestDto requestDto){
+    public Long update(Long id, PostsUpdateRequestDto requestDto){
         Posts posts = postsRepository.findById(id)
                 .orElseThrow(()->new
                         IllegalArgumentException("해당 게시글이 없습니다. id = "+id));

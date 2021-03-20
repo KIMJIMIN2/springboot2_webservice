@@ -2,9 +2,9 @@ package com.jojoldu.book.springboot.web;
 
 import com.jojoldu.book.domain.posts.Posts;
 import com.jojoldu.book.domain.posts.PostsRepository;
-import com.jojoldu.book.web.dto.PostUpdateRequestDto;
 import com.jojoldu.book.web.dto.PostsSaveRequestDto;
 
+import com.jojoldu.book.web.dto.PostsUpdateRequestDto;
 import org.junit.After;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -78,15 +78,17 @@ public class PostsApiControllerTest {
         String expectedTitle = "title2";
         String expectedContent = "content2";
 
-        PostUpdateRequestDto requestDto =
-                PostUpdateRequestDto.builder()
-                .title(expectedTitle)
-                .content(expectedContent)
-                .build();
+
+        PostsUpdateRequestDto requestDto =
+                PostsUpdateRequestDto.builder()
+                        .title(expectedTitle)
+                        .content(expectedContent)
+                        .build();
 
         String url = "http://localhost:" + port + "/api/v1/posts/"+updateId;
+        
 
-        HttpEntity<PostUpdateRequestDto> requestEntity = new HttpEntity<>(requestDto);
+        HttpEntity<PostsUpdateRequestDto> requestEntity = new HttpEntity<>(requestDto);
 
         // when
         ResponseEntity<Long> responseEntity = restTemplate.exchange(url, HttpMethod.PUT, requestEntity,Long.class);
@@ -99,4 +101,3 @@ public class PostsApiControllerTest {
         assertThat(all.get(0).getContent()).isEqualTo(expectedContent);
     }
 }
-
