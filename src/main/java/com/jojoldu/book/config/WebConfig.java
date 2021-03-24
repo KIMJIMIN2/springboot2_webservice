@@ -1,4 +1,4 @@
-package com.jojoldu.book.config.WebConfig;
+package com.jojoldu.book.config;
 
 import com.jojoldu.book.config.auth.LoginUserArgumentResolver;
 import lombok.RequiredArgsConstructor;
